@@ -2,10 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 create node modul
+```bash
 npx create-next-app@latest frontend 
 or
 yarn create next-app frontend
-
+```
 First, run the development server:
 
 ```bash
