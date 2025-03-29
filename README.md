@@ -15,27 +15,27 @@ Sebelum memulai, pastikan beberapa hal berikut telah tersedia dan dikonfigurasi 
      - `about`
      - `interest`
 
-2. **Docker**  
-   Pastikan Docker telah diaktifkan dengan kontainer berikut:
+2. **Install dan Jalankan Docker Containers**  
+   Jika Docker belum terinstall, silakan install terlebih dahulu sesuai dengan sistem operasi Anda. Setelah itu, jalankan perintah berikut di terminal untuk mengatur dan menjalankan container yang diperlukan:
    
-   - **MongoDB**
-     - Name: `mongo`
-     - Container ID: `97e6adb4f088ccb2da42a9ae585393e38260a1645b3fd2b454133ae54146a522`
-     - Image: `mongo`
-     - Port: `27017:27017`
+   ```bash
+   docker run -d --name mongo \
+     -p 27017:27017 \
+     mongo
+
+   docker run -d --name rabbitmq \
+     -p 15672:15672 -p 5672:5672 \
+     rabbitmq:management
+   ```
    
-   - **RabbitMQ**
-     - Name: `rabbitmq`
-     - Container ID: `1b620bfebdb1f7ee41cbf61f7f8666e5d585f288352d0034ab462ed4af8f2171`
-     - Image: `rabbitmq:management`
-     - Port: `15672:15672` dan `5672:5672`
+   Dengan perintah di atas, container MongoDB dan RabbitMQ akan berjalan secara otomatis.
 
 ### Install Dependencies
 
 Untuk memulai, install dependency yang diperlukan dengan perintah berikut:
 
 ```bash
-npx create-next-app@latest frontend
+npx create-next-app@latest frontend 
 # or
 yarn create next-app frontend
 ```
