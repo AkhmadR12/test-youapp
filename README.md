@@ -1,18 +1,59 @@
+# Next.js Project
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
-create node modul
+
+### Prerequisites
+
+Sebelum memulai, pastikan beberapa hal berikut telah tersedia dan dikonfigurasi dengan benar:
+
+1. **MongoDB Connection**  
+   - Harus memiliki koneksi MongoDB dengan nama **"test-youapp"**.
+   - Database ini harus memiliki koleksi berikut:
+     - `users`
+     - `about`
+     - `interest`
+
+2. **Docker**  
+   Pastikan Docker telah diaktifkan dengan kontainer berikut:
+   
+   - **MongoDB**
+     - Name: `mongo`
+     - Container ID: `97e6adb4f088ccb2da42a9ae585393e38260a1645b3fd2b454133ae54146a522`
+     - Image: `mongo`
+     - Port: `27017:27017`
+   
+   - **RabbitMQ**
+     - Name: `rabbitmq`
+     - Container ID: `1b620bfebdb1f7ee41cbf61f7f8666e5d585f288352d0034ab462ed4af8f2171`
+     - Image: `rabbitmq:management`
+     - Port: `15672:15672` dan `5672:5672`
+
+### Install Dependencies
+
+Untuk memulai, install dependency yang diperlukan dengan perintah berikut:
+
 ```bash
-npx create-next-app@latest frontend 
-or
+npx create-next-app@latest frontend
+# or
 yarn create next-app frontend
 ```
-First, run the development server:
-open terminal backend 
+
+### Menjalankan Backend
+
+Pastikan backend berjalan sebelum menjalankan aplikasi frontend:
+
 ```bash
 npm run start:dev
 ```
-open terminal test-app 
+
+Backend harus berjalan pada **port 3001**.
+
+### Menjalankan Frontend
+
+Setelah backend dan semua layanan lain aktif, jalankan frontend dari folder `test-youapp`:
+
 ```bash
 npm run dev
 # or
@@ -23,25 +64,33 @@ pnpm dev
 bun dev
 ```
 
+Frontend juga harus berjalan pada **port 3001**.
 
+### Mengakses Aplikasi
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+Setelah semua layanan berjalan, buka browser dan akses:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[http://localhost:3001/login](http://localhost:3001/login)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing
+
+Anda dapat mulai mengedit halaman dengan memodifikasi file `app/page.tsx`. Perubahan akan diterapkan secara otomatis.
+
+## Fonts
+
+Proyek ini menggunakan [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) untuk mengoptimalkan dan memuat [Geist](https://vercel.com/font), font baru dari Vercel.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Untuk mempelajari lebih lanjut tentang Next.js, kunjungi:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js Documentation](https://nextjs.org/docs) - Pelajari fitur dan API Next.js.
+- [Learn Next.js](https://nextjs.org/learn) - Tutorial interaktif Next.js.
+- [Next.js GitHub](https://github.com/vercel/next.js) - Berkontribusi dan berikan masukan.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Cara termudah untuk melakukan deploy adalah menggunakan platform [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lihat dokumentasi [Next.js Deployment](https://nextjs.org/docs/app/building-your-application/deploying) untuk informasi lebih lanjut.
+
